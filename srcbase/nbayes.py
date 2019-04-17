@@ -87,7 +87,7 @@ def getAccuracy(testSet, predictions):
 	return (correct/float(len(testSet))) * 100.0
 
 
-
+"""
 def main():
 	filename = 'pima-indians-diabetes.data.csv'
 	splitRatio = 0.67
@@ -102,3 +102,4 @@ def main():
 	print('Accuracy: {0}%').format(accuracy)
 
 main()
+"""
