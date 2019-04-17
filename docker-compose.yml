@@ -1,0 +1,10 @@
+version: '3'
+services:
+  machine:
+    image: centospythonico
+    build:
+      context: .
+      dockerfile: Dockerfile-machine
+      command: python code/test_naive_bayes.py
+    volumes:
+      - "./:/machine"
