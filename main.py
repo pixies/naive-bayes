@@ -1,11 +1,11 @@
-
 from srcbase.nbayes import *
+import sys
 
- 
+param = sys.argv[1:][0]
 
-
+#r'databasedir/pima-indians-diabetes.data.csv'
 def main():
-	filename = r'databasedir/pima-indians-diabetes.data.csv'
+	filename = param
 	splitRatio = 0.67
 	dataset = loadCsv(filename)
 	trainingSet, testSet = splitDataset(dataset, splitRatio)
