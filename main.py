@@ -1,11 +1,11 @@
 
+from srcbase.nbayes import *
 
-from srcbase.N_Bayer import 
-
+ 
 
 
 def main():
-	filename = 'pima-indians-diabetes.data.csv'
+	filename = r'databasedir/pima-indians-diabetes.data.csv'
 	splitRatio = 0.67
 	dataset = loadCsv(filename)
 	trainingSet, testSet = splitDataset(dataset, splitRatio)
