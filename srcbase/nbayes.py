@@ -27,6 +27,10 @@ def separateByClass(dataset):
 		if (vector[-1] not in separated):
 			separated[vector[-1]] = []
 		separated[vector[-1]].append(vector)
+	print('class 1: ', separated[1.0])
+	print('class 2: ', separated[2.0])
+	print('class 3: ', separated[3.0])
+	print('class 4: ', separated[4.0])
 	return separated
 
 def mean(numbers):
@@ -34,6 +38,7 @@ def mean(numbers):
 
 def stdev(numbers):
 	avg = mean(numbers)
+	#print(numbers)
 	variance = sum([pow(x-avg,2) for x in numbers])/float(len(numbers)-1)
 	return math.sqrt(variance)
 
@@ -50,32 +55,50 @@ def summarizeByClass(dataset):
 	return summaries
 
 def calculateProbability(x, mean, stdev):
+	#print("entrei")
+	##print(x)
+	#print(stdev)
+	#print(mean)
 	exponent = math.exp(-(math.pow(x-mean,2)/(2*math.pow(stdev,2))))
+	#print(exponent)
+	#print("passei")
 	return (1 / (math.sqrt(2*math.pi) * stdev)) * exponent
 
 def calculateClassProbabilities(summaries, inputVector):
+	#print('passei no classProbabilities')
 	probabilities = {}
 	for classValue, classSummaries in summaries.iteritems():
 		probabilities[classValue] = 1
 		for i in range(len(classSummaries)):
 			mean, stdev = classSummaries[i]
+	#		print('desvio padrao: ', stdev)
 			x = inputVector[i]
+	#		print('chegando no calculateProbability')
 			probabilities[classValue] *= calculateProbability(x, mean, stdev)
+	#print(probabilities)
 	return probabilities
 			
 def predict(summaries, inputVector):
+	#print('entrei no predict')
 	probabilities = calculateClassProbabilities(summaries, inputVector)
 	bestLabel, bestProb = None, -1
 	for classValue, probability in probabilities.iteritems():
 		if bestLabel is None or probability > bestProb:
 			bestProb = probability
 			bestLabel = classValue
+	#print('passei no predict')
 	return bestLabel
 
 def getPredictions(summaries, testSet):
 	predictions = []
+	#print(summaries)
+	#print()
 	for i in range(len(testSet)):
+	#	print('--------------------')
+	#	print(testSet[i])
+	#	print('--------------------')
 		result = predict(summaries, testSet[i])
+		#print(result)
 		predictions.append(result)
 	return predictions
 
