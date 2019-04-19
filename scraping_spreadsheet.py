@@ -15,7 +15,7 @@ def get_planilha(file):
 	planilha = get_data(file, start_columm=3, columm_limit=2)
 	planilha = planilha['CÁLCULOS']
 
-	local_amostra = planilha[0][-1]
+	local_amostra = planilha[2][-1]
 	values = []
 	values.append(planilha[3][-1])
 	values.append(planilha[5][-1])
@@ -31,8 +31,9 @@ def get_planilha(file):
 		values.append(2)
 	elif planilha[24][-1] == 'Dura':
 		values.append(3)
-	elif planilha[24][-1] == 'Muito Dura':
+	elif planilha[24][-1] == 'Muito dura':
 		values.append(4)
+	values.append(local_amostra)
 		
 	return values
 
