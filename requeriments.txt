@@ -1,4 +1,9 @@
+lml==0.0.9
+lxml==4.3.3
 numpy==1.16.2
+pyexcel-ezodf==0.3.4
+pyexcel-io==0.5.17
+pyexcel-ods3==0.5.3
 scikit-learn==0.20.3
 scipy==1.2.1
 sklearn==0.0
