@@ -6,7 +6,7 @@ def get_files(path):
 		return a list with all files for scraping
     """
     for p, _, files in os.walk(os.path.abspath(path)): 
-   		return files[1:][::-1]
+   		return files[0:][::-1]
 
 def get_planilha(file):
 	"""
