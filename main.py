@@ -5,12 +5,12 @@ param = sys.argv[1:][0]
 
 #r'databasedir/pima-indians-diabetes.data.csv'
 def main():
-	filename = param
+	testSet = loadCsv(param)
 	#splitRatio = 0.67
-	dataset = loadCsv(filename)
+	dataset = loadCsv("tmp/test.csv")
 	trainingSet = dataset
 	#trainingSet, testSet = splitDataset(dataset, splitRatio)
-	testSet = loadCsv("testeSet.csv")
+	#testSet = loadCsv("testeSet.csv")
 	print('Split {0} rows into train={1} and test={2} rows').format(len(dataset), len(trainingSet), len(testSet))
 	# prepare model
 	
@@ -23,10 +23,6 @@ def main():
 	#print(len(summaries[4.0]))
 
 	#print(summaries)
-
-	
-
-
 
 	predictions = getPredictions(summaries, testSet)
 	#print(predictions)

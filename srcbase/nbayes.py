@@ -27,15 +27,15 @@ def separateByClass(dataset):
 		if (vector[-1] not in separated):
 			separated[vector[-1]] = []
 		separated[vector[-1]].append(vector)
-	print('class 1: ', separated[1.0])
-	print('class 2: ', separated[2.0])
-	print('class 3: ', separated[3.0])
-	print('class 4: ', separated[4.0])
+	#print('class 1: ', separated[1.0])
+	#print('class 2: ', separated[2.0])
+	#print('class 3: ', separated[3.0])
+	#print('class 4: ', separated[4.0])
 	return separated
 
 def mean(numbers):
 	return sum(numbers)/float(len(numbers))
-
+	
 def stdev(numbers):
 	avg = mean(numbers)
 	#print(numbers)
