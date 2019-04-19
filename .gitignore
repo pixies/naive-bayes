@@ -2,5 +2,6 @@
 .DS_Store
 venv/
 venv-old/
-
+files/
 tmp/
+databasedir/
